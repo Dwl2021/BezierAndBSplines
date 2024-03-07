@@ -15,10 +15,13 @@ $$
 ### 一阶贝塞尔曲线
 
 对于一阶贝塞尔曲线，很容易根据![t](https://juejin.cn/equation?tex=t)的值得出线段上那个点的坐标：
+
 $$
 B_1(t)=P_0+\left(P_1-P_0\right) t
 $$
+
 然后可以得出:
+
 $$
 B_1(t)=(1-t) P_0+t P_1, t \in[0,1]
 $$
@@ -30,6 +33,7 @@ $$
 
 对于二阶贝塞尔曲线, 其实你可以理解为: 在 $P_0 P_1$ 上利用一阶公式求出点 $P_0^{\prime}$, 然后在 $P_1 P_2$ 上利用一阶公式求出点 $P_1^{\prime}$, 最后在 $P_0^{\prime} P_1^{\prime}$ 上再利用一阶公式就可以求出最终贝塞尔曲线上的点 $P_0{ }^{\prime \prime}$ 。具体推导过程如下:
 先求出线段上的控制点。
+
 $$
 \begin{aligned}
 & P_0^{\prime}=(1-t) P_0+t P_1 \\
@@ -38,6 +42,7 @@ $$
 $$
 
 将上面的公式带入至下列公式中:
+
 $$
 \begin{aligned}
  B_2(t)&=(1-t) P_0^{\prime}+t P_1^{\prime} \\
@@ -47,6 +52,7 @@ $$
 $$
 
 得出以下公式:
+
 $$
 B_2(t)=(1-t)^2 P_0+2 t(1-t) P_1+t^2 P_2, t \in[0,1]
 $$
@@ -57,6 +63,7 @@ $$
 <img src="./assets/Bezier3.gif" alt="Bezier3" style="zoom:50%;" />
 
 与二阶贝塞尔曲线类似, 可以通过相同的方法得出以下坐标公式:
+
 $$
 B_3(t)=(1-t)^3 P_0+3 t(1-t)^2 P_1+3 t^2(1-t) P_2+t^3 P_3, t \in[0,1]
 $$
@@ -65,11 +72,13 @@ $$
 ### 多阶贝塞尔曲线
 
 以此类推可以得到n阶贝塞尔曲线
+
 $$
 B(t)=\sum_{i=0}^n C_n^i P_i(1-t)^{n-i} t^i, t \in[0,1]
 $$
 
 即:
+
 $$
 B(t)=\sum_{i=0}^n P_i b_{i, n}(t), t \in[0,1]
 $$
@@ -86,6 +95,7 @@ $$
 公认的是de Boor-Cox递推定义。其内容简单来说是由0次构造 1 次, 由1次构造 2 次, 由 2 次构造 3 次,以此类推。
 
 递推定义:
+
 $$
 \left\{\begin{array}{l}
 \mathrm{F}_{i, 0}(t)= \begin{cases}1, & \mathrm{t}_{\mathrm{i}} \leq \mathrm{t} \leq t_{i+1} \\
@@ -94,6 +104,7 @@ $$
 \text { 约定 } \frac{0}{0}=0
 \end{array}\right.
 $$
+
 其中$k$表示第$k$次，$i$表示第$i$段时间。
 
 
@@ -114,8 +125,6 @@ $$
 \begin{aligned}
 F_{\mathrm{i}, 1}(\mathrm{t})&=\frac{\mathrm{t}-\mathrm{t}_{\mathrm{i}}}{\mathrm{t}_{\mathrm{i}+1}-\mathrm{t}_{\mathrm{i}}} F_{\mathrm{i}, 0}(\mathrm{t})+\frac{\mathrm{t}_{\mathrm{i}+2}-\mathrm{t}}{\mathrm{t}_{\mathrm{i}+2}-\mathrm{t}_{\mathrm{i}+1}} F_{\mathrm{i}+1,0}(\mathrm{t})\\
 &= \begin{cases}\frac{t-t_i}{t_{i+1}-t_i}, & \text{若 } t_i \leq t<t_{i+1} \\ \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}}, & \text{若 } t_{i+1} \leq t<t_{i+2} \\ 0, & \text{其他}\end{cases}
-
-
 \end{aligned}
 $$
 
