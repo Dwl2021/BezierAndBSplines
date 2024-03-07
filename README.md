@@ -29,7 +29,7 @@ $$
 
 ### 二阶贝塞尔曲线
 
-<img src="./assets/Bezier2.gif" alt="Bezier2" style="zoom:50%;" />
+<img src="./assets/Bezier2.gif" alt="Bezier2" style="zoom: 33%;" />
 
 对于二阶贝塞尔曲线, 其实你可以理解为: 在 $P_0 P_1$ 上利用一阶公式求出点 $P_0^{\prime}$, 然后在 $P_1 P_2$ 上利用一阶公式求出点 $P_1^{\prime}$, 最后在 $P_0^{\prime} P_1^{\prime}$ 上再利用一阶公式就可以求出最终贝塞尔曲线上的点 $P_0{ }^{\prime \prime}$ 。具体推导过程如下:
 先求出线段上的控制点。
@@ -60,7 +60,7 @@ $$
 
 ### 三阶贝塞尔曲线
 
-<img src="./assets/Bezier3.gif" alt="Bezier3" style="zoom:50%;" />
+<img src="./assets/Bezier3.gif" alt="Bezier3" style="zoom: 33%;" />
 
 与二阶贝塞尔曲线类似, 可以通过相同的方法得出以下坐标公式:
 
@@ -99,9 +99,9 @@ $$
 $$
 \left\{\begin{array}{l}
 \mathrm{F}_{i, 0}(t)= \begin{cases}1, & \mathrm{t}_{\mathrm{i}} \leq \mathrm{t} \leq t_{i+1} \\
-0, & \text { 其他 }\end{cases} \\
+0, & other \end{cases} \\
 \mathrm{F}_{i, k}(t)=\frac{t-t_i}{t_{i+\mathrm{k}}-t_i} F_{i, k-1}(t)+\frac{t_{i+k+1}-t}{t_{i+k+1}-t_{i+1(t)}} F_{i+1, k-1}(t) \\
-\text { 约定 } \frac{0}{0}=0
+defining \frac{0}{0}=0
 \end{array}\right.
 $$
 
@@ -117,7 +117,7 @@ $$
 
 得到的曲线如下图所示，
 
-<img src="./assets/image-20240306213234508.png" alt="image-20240306213234508" style="zoom:67%;" />
+<img src="./assets/image-20240306213234508.png" alt="image-20240306213234508" style="zoom: 33%;" />
 
 ### 一次BSpline
 
@@ -130,7 +130,7 @@ $$
 
 得到的曲线如下所示，
 
-<img src="./assets/image-20240306213405313.png" alt="image-20240306213405313" style="zoom: 50%;" />
+<img src="./assets/image-20240306213405313.png" alt="image-20240306213405313" style="zoom: 25%;" />
 
 ### 二次BSpline
 
@@ -138,13 +138,12 @@ $$
 \begin{aligned}
 F_{i, 2}(t) &=\frac{t-t_i}{t_{i+2}-t_i} F_{i, 1}(t)+\frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} F_{i+1,1}(t)\\
 &= \begin{cases}\frac{t-t_i}{t_{i+2}-t_i} \cdot \frac{t-t_i}{t_{i+1}-t_i}, & \text { 若 } t_i \leq t<t_{i+1} \\ \frac{t-t_i}{t_{i+2}-t_i} \cdot \frac{t_{i+2}-t}{t_{i+2}-t_{i+1}}+\frac{t_{i+3}-t}{t_{i+3}-t_{i+1}} \cdot \frac{t-t_{i+1}}{t_{i+2}-t_{i+1}}, & \text { 若 } t_{i+1} \leq t<t_{i+2} \\ \frac{\left(t_{i+3}-t\right)^2}{\left(t_{i+3}-t_{i+1}\right)\left(t_{i+3}-t_{i+2}\right)}, & \text { 若 } t_{i+2} \leq t<t_{i+3} \\ 0, \quad \text { 其他 } & \end{cases}
-
 \end{aligned}
 $$
 
 得到的结果如下所示，
 
-<img src="./assets/image-20240306213845031.png" alt="image-20240306213845031" style="zoom: 67%;" />
+<img src="./assets/image-20240306213845031.png" alt="image-20240306213845031" style="zoom: 33%;" />
 
 
 
@@ -156,7 +155,7 @@ $$
 
 得到的结果如下所示，
 
-<img src="./assets/image-20240306214110422.png" alt="image-20240306214110422" style="zoom:67%;" />
+<img src="./assets/image-20240306214110422.png" alt="image-20240306214110422" style="zoom: 33%;" />
 
 
 
@@ -164,15 +163,15 @@ $$
 
 例如，**3次BSpline**
 
-<img src="./assets/image-20240307101150769.png" alt="image-20240307101150769" style="zoom:67%;" />
+<img src="./assets/image-20240307101150769.png" alt="image-20240307101150769" style="zoom: 33%;" />
 
 **5次BSpline，**
 
-<img src="./assets/image-20240307101239748.png" alt="image-20240307101239748" style="zoom:67%;" />
+<img src="./assets/image-20240307101239748.png" alt="image-20240307101239748" style="zoom: 33%;" />
 
 
 
-## Refference
+## Reference
 
 https://juejin.cn/post/6844903666361565191
 
