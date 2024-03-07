@@ -1,3 +1,4 @@
+close all;clear;clc;
 
 Degree = 5;  % b样条次数
 N = 10;  % 定义控制点的个数
